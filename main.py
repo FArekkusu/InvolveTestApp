@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 import uuid
 import json
 import logging
+import os
 from utils import normalize_number
 from form_generators import generate_eur_form, generate_usd_form, generate_rub_form
 import database
@@ -40,4 +41,4 @@ def index():
 if __name__ == "__main__":
     database.create_tables()
     logging.basicConfig(filename="logs.txt", level=logging.DEBUG)
-    app.run("0.0.0.0")
+    app.run("0.0.0.0", port=5000)
