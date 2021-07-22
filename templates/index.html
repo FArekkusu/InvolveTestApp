@@ -1,0 +1,29 @@
+<body>
+    <form action="{{ url_for('index') }}" method="post">
+        <table>
+            <tr>
+                <td>Amount:</td>
+                <td>
+                    <input type="number" name="amount" step="0.01" required>
+                </td>
+            </tr>
+            <tr>
+                <td>Currency:</td>
+                <td>
+                    <select name="currency">
+                        {% for name in currencies %}
+                            <option value="{{ name }}">{{ name }}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Description:</td>
+                <td>
+                    <textarea name="description" cols="40" rows="5"></textarea>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="Pay">
+    </form>
+</body>
